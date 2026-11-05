@@ -1,0 +1,21 @@
+# Build output
+/target/
+*.class
+*.log
+
+# Maven Wrapper runtime download
+/.mvn/wrapper/maven-wrapper.jar
+
+# IDE and OS files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local secrets and deployment credentials
+.env
+.env.*
+!.env.example
+.vercel/
+.railway/

@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: upi-offline-mesh-demo
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /health
+    envVars:
+      - key: H2_CONSOLE_ENABLED
+        value: "false"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: upi-offline-mesh-db
+          property: connectionString
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+
+databases:
+  - name: upi-offline-mesh-db
+    databaseName: meshpay
+    user: meshpay
+    plan: free
+    region: singapore
+    postgresMajorVersion: 16
